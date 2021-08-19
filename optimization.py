@@ -18,7 +18,11 @@ class Optimizer:
     ):
         self.assets = np.array(assets)
 
-    def naive(self):
+    def naive(
+        self,
+        *args,
+        **kwargs
+    ):
         """
         Implements naive diversification and returns equal weights among all assets
         """
@@ -26,7 +30,9 @@ class Optimizer:
 
     def rp(
         self,
-        bounds = None
+        bounds = None,
+        *args,
+        **kwargs
     ):
         """
         Implements the risk-parity approach and returns weights proportional to the inverse volatility of each asset.
@@ -70,7 +76,9 @@ class Optimizer:
     def minvar(
         self,
         constrained = True,
-        bounds = None
+        bounds = None,
+        *args,
+        **kwargs
     ):
         """
         Returns weights of the minimum-variance portfolio in the mean-variance space
@@ -100,7 +108,11 @@ class Optimizer:
                 rule = "minvar"
             ).optimize()
 
-    def rrt(self):
+    def rrt(
+        self,
+        *args,
+        **kwargs
+    ):
         """
         Implements Reward-to-Risk timing and returns weights proportional to the Sharpe Ratio of each asset
         """
@@ -113,7 +125,9 @@ class Optimizer:
         self,
         constrained = True,
         bounds = None,
-        maximum_volatility = None
+        maximum_volatility = None,
+        *args,
+        **kwargs
     ):
         """
         Implements a mean-variance approach with possible short-sale constraints and minimum/maximum
@@ -151,7 +165,11 @@ class Optimizer:
             ).optimize()
 
 
-    def hrp(self):
+    def hrp(
+        self,
+        *args,
+        **kwargs
+    ):
         """
         Implements the Hierarchical Risk-Parity approach of De Prado (2016)
         which is a mixture of risk-parity and tangency weights built upon a clustered and
